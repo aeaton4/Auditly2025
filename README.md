@@ -51,23 +51,12 @@ Auditly2025/
 
 ### Installation
 
-1. **Clone the repository**
-   -clone https://github.com/aeaton4/Auditly2025.git
+1. **Clone the repository**: https://github.com/aeaton4/Auditly2025.git
    cd Auditly2025
 
-2. **Set up environment variables**
-   cp .env.example .env
+2. **Set up environment variables**: cp .env.example .env
 
 3. **Deployment Methodology**: Use Docker
-
-```bash
-docker-compose up
-```
-
-This will start:
-- PostgreSQL database on port 5432
-- Backend API on port 3000
-- Frontend on port 3001
 
 ### Database Setup
 
