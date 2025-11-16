@@ -90,24 +90,6 @@ This will start:
 - Backend API on port 3000
 - Frontend on port 3001
 
-#### Option B: Manual Setup
-
-**Backend:**
-```bash
-cd backend
-npm install
-npm run migrate    # Run database migrations
-npm run seed       # Seed initial data
-npm run dev        # Start development server
-```
-
-**Frontend:**
-```bash
-cd frontend
-npm install
-npm start          # Start React development server
-```
-
 ### Database Setup
 
 The application uses Sequelize for database management.
