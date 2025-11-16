@@ -239,9 +239,8 @@ Key architectural components:
 ## Testing
 
 Testing infrastructure can be added using:
-- **Backend**: Jest, Supertest
-- **Frontend**: Jest, React Testing Library
-- **E2E**: Cypress or Playwright
+- **Backend**: Jest
+- **Frontend**: Jest
 
 ## Contributing
 
