@@ -1,29 +1,15 @@
-# Auditly2025
+# Auditly
 
 A comprehensive audit tracking and management system designed to help organizations plan, execute, and track audit projects with ease.
 
 ## Features
 
-- **User Management**: Manage users with role-based access (Admin, Auditor, Reviewer, Viewer)
-- **Audit Tracking**: Create and track audit projects with status monitoring
-- **Finding Management**: Document and track audit findings with severity levels
-- **Risk Assessment**: Identify, assess, and mitigate risks with likelihood and impact analysis
-- **Document Management**: Attach and organize audit-related documents
-- **Collaboration**: Add comments to audits and findings for team collaboration
-
-## Technology Stack
-
-### Backend
-- Node.js & Express.js
-- Sequelize ORM
-- PostgreSQL database
-- RESTful API architecture
-
-### Frontend
-- React 18
-- React Router v6
-- Axios for API calls
-- Modern responsive design
+- User Management: manage users with role-based access (Admin, Auditor, Reviewer, Viewer)
+- Audit Tracking: create and track audit projects with status monitoring
+- Finding Management: document and track audit findings with severity levels
+- Risk Assessment: identify, assess, and mitigate risks with likelihood and impact analysis
+- Document Management: attach and organize audit-related documents
+- Collaboration: add comments to audits and findings for team collaboration
 
 ### Infrastructure
 - Docker & Docker Compose
@@ -77,9 +63,7 @@ Auditly2025/
    # Edit .env with your configuration
    ```
 
-3. **Choose your deployment method:**
-
-#### Option A: Using Docker (Recommended)
+3. **Deployment Methodology**: Use Docker
 
 ```bash
 docker-compose up
