@@ -238,8 +238,6 @@ REACT_APP_API_URL=http://localhost:3000/api
 
 ## Architecture
 
-For detailed architecture documentation, see [docs/architecture.md](docs/architecture.md).
-
 Key architectural components:
 - **Three-tier architecture**: Frontend, Backend API, Database
 - **RESTful API**: Standard HTTP methods and status codes
@@ -253,16 +251,6 @@ Key architectural components:
 - Mock authentication middleware
 - No password hashing
 - CORS enabled for all origins
-
-**Production Recommendations:**
-- Implement JWT-based authentication
-- Add password hashing (bcrypt)
-- Enable HTTPS
-- Configure CORS properly
-- Add rate limiting
-- Implement input validation
-- Add comprehensive logging
-- Use secret management service
 
 ## Testing
 
@@ -278,14 +266,6 @@ Testing infrastructure can be added using:
 3. Commit your changes (`git commit -m 'Add amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License.
-
-## Support
-
-For questions or issues, please open an issue in the GitHub repository.
 
 ## Roadmap
 
