@@ -52,16 +52,11 @@ Auditly2025/
 ### Installation
 
 1. **Clone the repository**
-   ```bash
-   git clone https://github.com/aeaton4/Auditly2025.git
+   -clone https://github.com/aeaton4/Auditly2025.git
    cd Auditly2025
-   ```
 
 2. **Set up environment variables**
-   ```bash
    cp .env.example .env
-   # Edit .env with your configuration
-   ```
 
 3. **Deployment Methodology**: Use Docker
 
