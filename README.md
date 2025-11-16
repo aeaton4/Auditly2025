@@ -51,8 +51,7 @@ Auditly2025/
 
 ### Installation
 
-1. **Clone the repository**: https://github.com/aeaton4/Auditly2025.git
-   cd Auditly2025
+1. **Clone the repository**: https://github.com/aeaton4/Auditly2025.git cd Auditly2025
 
 2. **Set up environment variables**: cp .env.example .env
 
@@ -62,23 +61,11 @@ Auditly2025/
 
 The application uses Sequelize for database management.
 
-**Run migrations:**
-```bash
-cd backend
-npm run migrate
-```
+**Run migrations**: cd backend npm run migrate
 
-**Seed database with sample data:**
-```bash
-cd backend
-npm run seed
-```
+**Seed database with sample data**: cd backend npm run seed
 
-**Undo migrations:**
-```bash
-cd backend
-npm run migrate:undo
-```
+**Undo migrations**: cd backend npm run migrate:undo
 
 ## Usage
 
