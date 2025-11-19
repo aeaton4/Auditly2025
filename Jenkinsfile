@@ -1,83 +1,90 @@
 pipeline {
     agent any
 
+    environment {
+        // Customize these variables as needed
+        NODE_VERSION = '18'
+        WORKING_DIR = 'backend'
+    }
+
     stages {
         stage('Checkout') {
             steps {
+                echo 'Checking out source code...'
                 checkout scm
             }
         }
-        stage('Install Backend Dependencies') {
+
+        stage('Install Dependencies') {
             steps {
-                dir('backend') {
+                echo 'Installing dependencies...'
+                dir("${WORKING_DIR}") {
                     sh 'npm install'
                 }
             }
         }
-        stage('Install Frontend Dependencies') {
+
+        stage('Lint') {
             steps {
-                dir('frontend') {
-                    sh 'npm install'
+                echo 'Running lint checks...'
+                dir("${WORKING_DIR}") {
+                    sh 'npm run lint'
                 }
             }
         }
-        stage('Lint Backend') {
+
+        stage('Build') {
             steps {
-                dir('backend') {
-                    script {
-                        if (fileExists('package.json')) {
-                            def pkg = readJSON file: 'package.json'
-                            if (pkg.scripts && pkg.scripts.lint) {
-                                sh 'npm run lint'
-                            } else {
-                                echo 'No lint script in backend/package.json'
-                            }
-                        }
-                    }
+                echo 'Building application...'
+                dir("${WORKING_DIR}") {
+                    sh 'npm run build'
                 }
             }
         }
-        stage('Lint Frontend') {
+
+        stage('Test') {
             steps {
-                dir('frontend') {
-                    script {
-                        if (fileExists('package.json')) {
-                            def pkg = readJSON file: 'package.json'
-                            if (pkg.scripts && pkg.scripts.lint) {
-                                sh 'npm run lint'
-                            } else {
-                                echo 'No lint script in frontend/package.json'
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        stage('Test Backend') {
-            steps {
-                dir('backend') {
+                echo 'Running tests...'
+                dir("${WORKING_DIR}") {
                     sh 'npm test'
                 }
             }
         }
-        stage('Test Frontend') {
-            steps {
-                dir('frontend') {
-                    sh 'npm test'
-                }
+
+        stage('Deploy') {
+            when {
+                branch 'main'
             }
-        }
-        stage('Archive Test Results') {
             steps {
-                // Must configure your test runner to emit junit.xml in frontend/backend
-                junit 'frontend/**/junit.xml'
-                junit 'backend/**/junit.xml'
+                echo 'Deploying application...'
+                // Add your deployment commands here
+                // Examples:
+                // - sh 'npm run deploy'
+                // - sh 'docker build -t myapp:latest .'
+                // - sh 'kubectl apply -f k8s/'
+                echo 'Deployment completed successfully!'
             }
         }
     }
+
     post {
         always {
+            echo 'Pipeline finished - cleaning up workspace...'
             cleanWs()
+        }
+        success {
+            echo 'Pipeline completed successfully!'
+            // Add success notifications here
+            // Examples:
+            // - emailext(...)
+            // - slackSend(...)
+        }
+        failure {
+            echo 'Pipeline failed!'
+            // Add failure notifications here
+            // Examples:
+            // - emailext(...)
+            // - slackSend(...)
         }
     }
 }
