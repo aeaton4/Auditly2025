@@ -38,6 +38,7 @@ Auditly2025/
 ├── docs/                # Documentation
 │   └── architecture.md  # Architecture documentation
 ├── docker-compose.yml   # Docker composition
+├── Jenkinsfile          # CI/CD pipeline configuration
 └── .env.example         # Environment template
 ```
 
@@ -212,6 +213,25 @@ Key architectural components:
 Testing infrastructure can be added using:
 - **Backend**: Jest
 - **Frontend**: Jest
+
+## CI/CD Pipeline
+
+The project includes a Jenkins pipeline configuration located at the root of the repository:
+
+**Location**: `Jenkinsfile` (in the root directory)
+
+The Jenkins pipeline automates the following stages:
+1. **Checkout**: Retrieves the source code from the repository
+2. **Install Dependencies**: Installs npm packages for both backend and frontend
+3. **Linting**: Runs code quality checks (if lint scripts are configured)
+4. **Testing**: Executes test suites for both backend and frontend
+5. **Archive Results**: Stores test results in JUnit format
+
+To use this pipeline:
+1. Set up a Jenkins server with Node.js and npm installed
+2. Create a new Pipeline job in Jenkins
+3. Point it to this repository and the `Jenkinsfile` will be automatically detected
+4. Configure your test runners to emit JUnit XML reports for result archiving
 
 ## Contributing
 
